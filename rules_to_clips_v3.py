@@ -86,7 +86,7 @@ def check_memory(memory, env):
         if i[0] == position:
             i[1] += 1
             found = True
-            if i[1] >= 5:
+            if i[1] >= 3:
                 env.assert_string("(caution_loop)")
 
     if not found:
