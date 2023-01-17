@@ -1,5 +1,7 @@
 import clips
 
+# Creación del entorno CLIPS, no modificar
+env = clips.Environment()
 
 # Comprobar las percepciones del agente
 def what_I_see(self):
