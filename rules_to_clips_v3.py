@@ -120,6 +120,7 @@ class Agent_CLIPS:
     # Se inicializa el entorno y se añaden las reglas CLIPS
     def __init__(self, path):
         self.env = clips.Environment()
+        self.env.strategy = clips.common.Strategy.RANDOM
         self.env.load(path)
         self.env.reset()
         self.memory = []
