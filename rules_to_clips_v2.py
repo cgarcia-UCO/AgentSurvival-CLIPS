@@ -53,7 +53,7 @@ def move(self):
   set_walls(env,walls)
 
   # Show CLIPS state if asked
-  if move.show_state is not None and move.show_state:
+  if move.show_state:
         print('FACTS\n------------------------')
         print(list(env.facts()))
         print('\nACTIVATIONS\n---------------------')
@@ -82,5 +82,7 @@ def move(self):
       for j in functions:
         eval(j.replace('"',''))
 
+move.show_state = False
+        
 def show_state():
     move.show_state = True
