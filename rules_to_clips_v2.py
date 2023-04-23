@@ -41,7 +41,7 @@ def set_walls(env, walls):
     fact += ")"
     env.assert_string(fact)
     
-    
+
 def move(self):
   # Elimina los hechos que no necesita del entorno CLIPS
   reset_environment(env)
@@ -52,6 +52,16 @@ def move(self):
   # Crear el hecho de las paredes en el entorno CLIPS
   set_walls(env,walls)
 
+  # Show CLIPS state if asked
+  if move.show_state is not None and move.show_state:
+        print('FACTS\n------------------------')
+        print(list(env.facts()))
+        print('\nACTIVATIONS\n---------------------')
+        print(list(env.activations()))
+        input('Press a key')
+        move.show_state = False
+        
+    
   # Crear las posibles funciones accesibles al agente
   for i in objects:
         for key in i:
@@ -71,3 +81,6 @@ def move(self):
       functions = str(fact)[:-1].split()[1:]
       for j in functions:
         eval(j.replace('"',''))
+
+def show_state():
+    move.show_state = True
